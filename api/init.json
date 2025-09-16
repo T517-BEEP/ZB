@@ -5,7 +5,7 @@
   },
   "logoInfo": {
     "title": "芯对讲",
-    "image": "images/5084ba1b61e0238546ffd2a66b5dfec2.png",
+    "image": "images/276cc8202a83482c9bf4edfadede663bpreview.jpeg~tplv-a9rns2rl98-downsize_watermark_1_6.png",
     "href": ""
   },
   "menuInfo": [
@@ -118,6 +118,7 @@
 		  "href": "renew/renew1.html",
 		  "icon": "fa fa-jpy",
 		  "target": "_self"
+
 		},
         {
           "title": "服务卡记录",
