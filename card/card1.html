@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>服务卡信息表</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+			color: red;
+        }
+        .search-container {
+            background-color: #67C6C5;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .search-container label {
+            margin-right: 5px;
+        }
+        .search-container input,
+        .search-container select {
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .pagination {
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .pagination button,
+        .pagination input {
+            padding: 5px 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        .pagination button {
+            cursor: pointer;
+        }
+        .pagination button:hover {
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+<body background="../img/82f809e098ad9cf98d203101132b23cd.jpg"" width="100px">
+    <div class="search-container">
+        <div>
+            <label for="startDate">开始日期:</label>
+            <input type="date" id="startDate">
+        </div>
+        <div>
+            <label for="endDate">结束日期:</label>
+            <input type="date" id="endDate">
+        </div>
+        <div>
+            <label for="type">类型:</label>
+            <select id="type">
+                <option value="">请选择</option>
+                <option value="创建用户通知">创建用户通知</option>
+                <option value="购买通知">购买通知</option>
+            </select>
+        </div>
+        <div>
+            <label for="serviceCardType">服务卡类型:</label>
+            <select id="serviceCardType">
+                <option value="">选择服务卡类型</option>
+                <option value="语音卡">语音卡</option>
+            </select>
+        </div>
+        <div>
+            <label for="keyword">关键字:</label>
+            <input type="text" id="keyword" placeholder="输入关键字">
+        </div>
+        <div>
+            <button>搜索</button>
+        </div>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>时间</th>
+                <th>服务卡类型</th>
+                <th>类型</th>
+                <th>内容</th>
+                <th>服务卡数量</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>2023-09-16 12:58:11</td>
+                <td>语音卡</td>
+                <td>创建用户通知</td>
+                <td>所属单位:XT赵总123456</td>
+                <td>-1</td>
+            </tr>
+            <tr>
+                <td>2023-09-16 12:57:21</td>
+                <td>语音卡</td>
+                <td>创建用户通知</td>
+                <td>所属单位:XT赵总123456</td>
+                <td>-1</td>
+            </tr>
+            <tr>
+                <td>2023-04-21 09:10:02</td>
+                <td>语音卡</td>
+                <td>创建用户通知</td>
+                <td>所属单位:XT赵总123456</td>
+                <td>-1</td>
+            </tr>
+            <tr>
+                <td>2023-03-08 15:51:57</td>
+                <td>语音卡</td>
+                <td>创建用户通知</td>
+                <td>所属单位:XT赵总123456</td>
+                <td>-1</td>
+            </tr>
+            <tr>
+                <td>2023-02-16 18:40:01</td>
+                <td>语音卡</td>
+                <td>创建用户通知</td>
+                <td>所属单位:XT赵总123456</td>
+                <td>-1</td>
+            </tr>
+            <tr>
+                <td>2023-02-13 17:26:51</td>
+                <td>语音卡</td>
+                <td>购买通知</td>
+                <td>代理商:太原万里通公司</td>
+                <td>-5</td>
+            </tr>
+            <tr>
+                <td>2023-02-13 17:09:22</td>
+                <td>语音卡</td>
+                <td>创建用户通知</td>
+                <td>所属单位:XT赵总123456</td>
+                <td>-1</td>
+            </tr>
+            <tr>
+                <td>2023-02-13 11:12:22</td>
+                <td>语音卡</td>
+                <td>创建用户通知</td>
+                <td>所属单位:XT赵总123456</td>
+                <td>-1</td>
+            </tr>
+            <tr>
+                <td>2023-02-13 11:11:49</td>
+                <td>语音卡</td>
+                <td>创建用户通知</td>
+                <td>所属单位:XT赵总123456</td>
+                <td>-1</td>
+            </tr>
+            <tr>
+                <td>2023-02-02 09:15:27</td>
+                <td>语音卡</td>
+                <td>购买通知</td>
+                <td>代理商:太原万里通公司</td>
+                <td>-3</td>
+            </tr>
+            <tr>
+                <td>2023-02-01 22:42:51</td>
+                <td>语音卡</td>
+                <td>创建用户通知</td>
+                <td>所属单位:XT赵总123456</td>
+                <td>-1</td>
+            </tr>
+            <tr>
+                <td>2023-02-01 22:42:02</td>
+                <td>语音卡</td>
+                <td>创建用户通知</td>
+                <td>所属单位:XT赵总123456</td>
+                <td>-1</td>
+            </tr>
+            <tr>
+                <td>2022-11-29 08:16:43</td>
+                <td>语音卡</td>
+                <td>购买通知</td>
+                <td>代理商:太原万里通公司</td>
+                <td>-1</td>
+            </tr>
+            <tr>
+                <td>2022-11-29 08:16:26</td>
+                <td>语音卡</td>
+                <td>创建用户通知</td>
+                <td>所属单位:XT赵总123456</td>
+                <td>-1</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="pagination">
+        <span>共 25 条</span>
+        <button>上一页</button>
+        <button>1</button>
+        <button>2</button>
+        <button>下一页</button>
+        <span>前往</span>
+        <input type="text" placeholder="页码">
+        <button>确定</button>
+        <select>
+            <option value="20">20条/页</option>
+            <option value="30">30条/页</option>
+            <option value="50">50条/页</option>
+        </select>
+      
+    </div>
+</body>
+</html>

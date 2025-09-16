@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>修改代理商信息</title>
+    <!-- 引入Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 引入Font Awesome图标 -->
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    
+    <!-- Tailwind配置 -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3b82f6',    // 主色调（蓝色）
+                        success: '#10b981',    // 成功色（绿色）
+                        danger: '#ef4444',     // 危险色（红色）
+                        neutral: '#6b7280'     // 中性色（灰色）
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 min-h-screen flex flex-col">
+    <!-- 页面标题栏 -->
+    <header class="bg-white shadow-sm border-b border-gray-200 py-4">
+        <div class="container mx-auto px-4 flex items-center justify-between">
+            <h1 class="text-xl font-bold text-gray-800 flex items-center">
+                <i class="fa fa-user-circle-o text-primary mr-2"></i>
+                代理商信息修改
+            </h1>
+            <button onclick="window.location.href='./findagent.html'" 
+                    class="text-gray-600 hover:text-primary transition-colors flex items-center">
+                <i class="fa fa-arrow-left mr-1"></i> 返回列表
+            </button>
+        </div>
+    </header>
+
+    <!-- 主要内容区 -->
+    <main class="flex-grow container mx-auto px-4 py-8 max-w-3xl">
+        <!-- 成功提示框（默认隐藏） -->
+        <div id="successAlert" class="hidden fixed top-4 left-1/2 -translate-x-1/2 z-50 bg-success text-white px-6 py-3 rounded-md shadow-lg flex items-center animate-fadeIn">
+            <i class="fa fa-check-circle mr-2 text-lg"></i>
+            <span>代理商信息修改成功！</span>
+        </div>
+
+        <!-- 表单卡片 -->
+        <div class="bg-white rounded-lg shadow-md p-6 md:p-8">
+            <form id="agentForm" class="space-y-6">
+                <!-- 代理商编号 -->
+                <div class="space-y-2">
+                    <label for="agentId" class="block text-sm font-medium text-gray-700 flex items-center">
+                        <i class="fa fa-id-card text-neutral mr-2"></i>代理商编号
+                        <span class="text-danger ml-1">*</span>
+                    </label>
+                    <input type="text" id="agentId" name="agentId" value="10000" 
+                           class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
+                           placeholder="请输入代理商编号">
+                    <p id="agentIdError" class="mt-1 text-sm text-danger hidden">代理商编号不能为空</p>
+                </div>
+
+                <!-- 联系人 -->
+                <div class="space-y-2">
+                    <label for="contactPerson" class="block text-sm font-medium text-gray-700 flex items-center">
+                        <i class="fa fa-user text-neutral mr-2"></i>联系人
+                        <span class="text-danger ml-1">*</span>
+                    </label>
+                    <input type="text" id="contactPerson" name="contactPerson" value="张三" 
+                           class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
+                           placeholder="请输入联系人姓名">
+                    <p id="contactPersonError" class="mt-1 text-sm text-danger hidden">联系人不能为空</p>
+                </div>
+
+                <!-- 区域 -->
+                <div class="space-y-2">
+                    <label for="region" class="block text-sm font-medium text-gray-700 flex items-center">
+                        <i class="fa fa-map-marker text-neutral mr-2"></i>区域
+                        <span class="text-danger ml-1">*</span>
+                    </label>
+                    <input type="text" id="region" name="region" value="山西" 
+                           class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
+                           placeholder="请输入所在区域">
+                    <p id="regionError" class="mt-1 text-sm text-danger hidden">区域不能为空</p>
+                </div>
+
+                <!-- 服务卡 -->
+                <div class="space-y-2">
+                    <label for="serviceCard" class="block text-sm font-medium text-gray-700 flex items-center">
+                        <i class="fa fa-credit-card text-neutral mr-2"></i>服务卡
+                        <span class="text-danger ml-1">*</span>
+                    </label>
+                    <input type="text" id="serviceCard" name="serviceCard" value="语音卡" 
+                           class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
+                           placeholder="请输入服务卡类型">
+                    <p id="serviceCardError" class="mt-1 text-sm text-danger hidden">服务卡类型不能为空</p>
+                </div>
+
+                <!-- 手机号码 -->
+                <div class="space-y-2">
+                    <label for="phoneNumber" class="block text-sm font-medium text-gray-700 flex items-center">
+                        <i class="fa fa-phone text-neutral mr-2"></i>手机号码
+                        <span class="text-danger ml-1">*</span>
+                    </label>
+                    <input type="tel" id="phoneNumber" name="phoneNumber" value="13545678767" 
+                           class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
+                           placeholder="请输入11位手机号">
+                    <p id="phoneNumberError" class="mt-1 text-sm text-danger hidden">请输入有效的11位手机号</p>
+                </div>
+
+                <!-- 用户状态 -->
+                <div class="space-y-2">
+                    <label for="userStatus" class="block text-sm font-medium text-gray-700 flex items-center">
+                        <i class="fa fa-toggle-on text-neutral mr-2"></i>用户状态
+                        <span class="text-danger ml-1">*</span>
+                    </label>
+                    <select id="userStatus" name="userStatus" 
+                            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all">
+                        <option value="启用" selected>启用</option>
+                        <option value="禁用">禁用</option>
+                    </select>
+                    <p id="userStatusError" class="mt-1 text-sm text-danger hidden">请选择用户状态</p>
+                </div>
+
+                <!-- 创建日期（不可修改，仅展示） -->
+                <div class="space-y-2">
+                    <label class="block text-sm font-medium text-gray-700 flex items-center">
+                        <i class="fa fa-calendar text-neutral mr-2"></i>创建日期
+                    </label>
+                    <input type="text" value="2018.1.1" readonly 
+                           class="w-full px-4 py-2 border border-gray-200 bg-gray-50 rounded-md text-gray-600 cursor-not-allowed">
+                    <p class="mt-1 text-sm text-gray-500">创建日期不可修改，仅作记录展示</p>
+                </div>
+
+                <!-- 操作按钮 -->
+                <div class="mt-8 flex flex-col sm:flex-row gap-3">
+                    <button type="button" onclick="submitModify()"
+                            class="flex-1 bg-primary text-white px-6 py-3 rounded-md hover:bg-primary/90 transition-colors flex items-center justify-center font-medium">
+                        <i class="fa fa-check mr-2"></i> 确认修改
+                    </button>
+                    <button type="button" onclick="resetForm()"
+                            class="flex-1 border border-gray-300 text-gray-700 px-6 py-3 rounded-md hover:bg-gray-50 transition-colors flex items-center justify-center font-medium">
+                        <i class="fa fa-refresh mr-2"></i> 重置表单
+                    </button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="bg-white border-t border-gray-200 py-4 mt-8">
+        <div class="container mx-auto px-4 text-center text-gray-500 text-sm">
+            <p>© 2024 代理商管理系统 | 操作记录将保留1年</p>
+        </div>
+    </footer>
+
+    <script>
+        // 初始表单值（用于重置功能）
+        const initialFormValues = {
+            agentId: "10000",
+            contactPerson: "张三",
+            region: "山西",
+            serviceCard: "语音卡",
+            phoneNumber: "13545678767",
+            userStatus: "启用"
+        };
+
+        // 表单校验规则
+        function validateForm() {
+            // 获取表单值
+            const agentId = document.getElementById('agentId').value.trim();
+            const contactPerson = document.getElementById('contactPerson').value.trim();
+            const region = document.getElementById('region').value.trim();
+            const serviceCard = document.getElementById('serviceCard').value.trim();
+            const phoneNumber = document.getElementById('phoneNumber').value.trim();
+            const userStatus = document.getElementById('userStatus').value;
+
+            // 获取错误提示元素
+            const agentIdError = document.getElementById('agentIdError');
+            const contactPersonError = document.getElementById('contactPersonError');
+            const regionError = document.getElementById('regionError');
+            const serviceCardError = document.getElementById('serviceCardError');
+            const phoneNumberError = document.getElementById('phoneNumberError');
+            const userStatusError = document.getElementById('userStatusError');
+
+            // 重置所有错误提示
+            let isValid = true;
+            agentIdError.classList.add('hidden');
+            contactPersonError.classList.add('hidden');
+            regionError.classList.add('hidden');
+            serviceCardError.classList.add('hidden');
+            phoneNumberError.classList.add('hidden');
+            userStatusError.classList.add('hidden');
+
+            // 校验代理商编号
+            if (agentId === '') {
+                agentIdError.classList.remove('hidden');
+                isValid = false;
+            }
+
+            // 校验联系人
+            if (contactPerson === '') {
+                contactPersonError.classList.remove('hidden');
+                isValid = false;
+            }
+
+            // 校验区域
+            if (region === '') {
+                regionError.classList.remove('hidden');
+                isValid = false;
+            }
+
+            // 校验服务卡
+            if (serviceCard === '') {
+                serviceCardError.classList.remove('hidden');
+                isValid = false;
+            }
+
+            // 校验手机号（11位数字）
+            const phoneReg = /^1\d{10}$/;
+            if (!phoneReg.test(phoneNumber)) {
+                phoneNumberError.classList.remove('hidden');
+                isValid = false;
+            }
+
+            // 校验用户状态
+            if (userStatus === '') {
+                userStatusError.classList.remove('hidden');
+                isValid = false;
+            }
+
+            return isValid;
+        }
+
+        // 提交修改
+        function submitModify() {
+            // 表单校验
+            if (!validateForm()) return;
+
+            // （实际项目中此处需调用后端接口提交修改，示例用定时器模拟接口请求）
+            const successAlert = document.getElementById('successAlert');
+            
+            // 显示加载状态（按钮禁用+加载图标）
+            const submitBtn = document.querySelector('button[onclick="submitModify()"]');
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fa fa-spinner fa-spin mr-2"></i> 修改中...';
+
+            // 模拟接口请求（800毫秒后显示成功提示）
+            setTimeout(() => {
+                // 恢复按钮状态
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<i class="fa fa-check mr-2"></i> 确认修改';
+
+                // 显示成功提示
+                successAlert.classList.remove('hidden');
+                
+                // 3秒后自动隐藏提示
+                setTimeout(() => {
+                    successAlert.classList.add('hidden');
+                }, 3000);
+            }, 800);
+        }
+
+        // 重置表单
+        function resetForm() {
+            // 重置表单值
+            document.getElementById('agentId').value = initialFormValues.agentId;
+            document.getElementById('contactPerson').value = initialFormValues.contactPerson;
+            document.getElementById('region').value = initialFormValues.region;
+            document.getElementById('serviceCard').value = initialFormValues.serviceCard;
+            document.getElementById('phoneNumber').value = initialFormValues.phoneNumber;
+            document.getElementById('userStatus').value = initialFormValues.userStatus;
+
+            // 隐藏所有错误提示
+            document.querySelectorAll('.text-danger').forEach(el => {
+                el.classList.add('hidden');
+            });
+        }
+
+        // 为输入框添加实时校验（输入时隐藏对应错误提示）
+        document.querySelectorAll('#agentForm input, #agentForm select').forEach(input => {
+            input.addEventListener('input', function() {
+                const errorId = this.id + 'Error';
+                const errorEl = document.getElementById(errorId);
+                if (errorEl) {
+                    errorEl.classList.add('hidden');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

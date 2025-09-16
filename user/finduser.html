@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head> 
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap表格</title>
+    <!-- 新 Bootstrap5 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.staticfile.net/twitter-bootstrap/5.1.1/css/bootstrap.min.css">
+    <!-- 最新的 Bootstrap5 核心 JavaScript 文件 -->
+    <script src="https://cdn.staticfile.net/twitter-bootstrap/5.1.1/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <h2>用户列表</h2>
+    <table class="table table-bordered text-center table-striped table-hover">
+        <tr>
+            <td>用户名称</td>
+            <td>IMEI</td>
+            <td>所属单位</td>
+            <td>类型</td>
+            <td>换号期限</td>
+            <td>服务状态</td>
+            <td>在组数</td>
+            <td>默认群组</td>
+            <td>卡服务时间</td>
+            <td>在线</td>
+            <td>最后登录时间</td>
+            <td>操作</td>
+        </tr>
+        <!-- 第1条数据：IMEI=88856213444842 -->
+        <tr>
+            <td>0024</td>
+            <td>88856213444842</td>
+            <td>DTZG123456</td>
+            <td>正式</td>
+            <td>2023.9.16~2024.9.16</td>
+            <td>启用</td>
+            <td>1</td>
+            <td>张三车队</td>
+            <td>2023.9.16~2024.9.16</td>
+            <td>√</td>
+            <td>2024.5.5</td>
+            <td>
+                <!-- href路径：详情页+当前用户IMEI参数 -->
+                <a href="./view.html" class="btn btn-info">查看详情</a>
+            </td>
+        </tr>
+        <!-- 第2条数据：IMEI=88859854125635 -->
+        <tr>
+            <td>0011</td>
+            <td>88859854125635</td>
+            <td>DTZG123456</td>
+            <td>正式</td>
+            <td>2023.5.16~2024.5.16</td>
+            <td>启用</td>
+            <td>1</td>
+            <td>李四车队</td>
+            <td>2023.5.16~2024.5.16</td>
+            <td>√</td>
+            <td>2024.9.9</td>
+            <td>
+                <a href="./view.html" class="btn btn-info">查看详情</a>
+            </td>
+        </tr>
+        <!-- 第3条数据：IMEI=88856213444842（与第1条重复，路径保持一致） -->
+        <tr>
+            <td>0024</td>
+            <td>88856213444842</td>
+            <td>DTZG123456</td>
+            <td>正式</td>
+            <td>2023.9.16~2024.9.16</td>
+            <td>启用</td>
+            <td>1</td>
+            <td>张三车队</td>
+            <td>2023.9.16~2024.9.16</td>
+            <td>√</td>
+            <td>2024.5.5</td>
+            <td>
+                <a href="./view.html" class="btn btn-info">查看详情</a>
+            </td>
+        </tr>
+        <!-- 第4条数据：IMEI=6521842544842 -->
+        <tr>
+            <td>1126</td>
+            <td>6521842544842</td>
+            <td>DTZG123456</td>
+            <td>正式</td>
+            <td>2023.9.26~2024.9.26</td>
+            <td>禁用</td>
+            <td>1</td>
+            <td>王五车队</td>
+            <td>2023.9.26~2024.9.26</td>
+            <td>×</td>
+            <td>2024.1.5</td>
+            <td>
+                <a href="./view.html" class="btn btn-info">查看详情</a>
+            </td>
+        </tr>
+        <!-- 后续数据以此类推：每条a标签的href都携带当前行的IMEI参数 -->
+        <tr>
+            <td>8526</td>
+            <td>98745865421587</td>
+            <td>DTZG123456</td>
+            <td>正式</td>
+            <td>2023.5.7~2024.5.7</td>
+            <td>启用</td>
+            <td>1</td>
+            <td>肉哥车队</td>
+            <td>2023.5.7~2024.5.7</td>
+            <td>√</td>
+            <td>2024.5.5</td>
+            <td>
+                <a href="./view.html" class="btn btn-info">查看详情</a>
+            </td>
+        </tr>
+        <tr>
+            <td>0001</td>
+            <td>66558874256541</td>
+            <td>DTZG123456</td>
+            <td>测试</td>
+            <td>2024.9.16~2025.9.16</td>
+            <td>启用</td>
+            <td>1</td>
+            <td>张三车队</td>
+            <td>2024.9.16~2025.9.16</td>
+            <td>√</td>
+            <td>2025.5.5</td>
+            <td>
+                <a href="./view.html" class="btn btn-info">查看详情</a>
+            </td>
+        </tr>
+        <tr>
+            <td>5524</td>
+            <td>98653214587458</td>
+            <td>DTZG123456</td>
+            <td>正式</td>
+            <td>2023.6.16~2024.6.16</td>
+            <td>启用</td>
+            <td>1</td>
+            <td>张哥车队</td>
+            <td>2023.6.16~2024.6.16</td>
+            <td>√</td>
+            <td>2024.1.5</td>
+            <td>
+                <a href="./view.html" class="btn btn-info">查看详情</a>
+            </td>
+        </tr>
+        <tr>
+            <td>3624</td>
+            <td>88456213444842</td>
+            <td>DTZG123456</td>
+            <td>正式</td>
+            <td>2023.12.16~2024.12.16</td>
+            <td>启用</td>
+            <td>1</td>
+            <td>张三车队</td>
+            <td>2023.12.16~2024.12.16</td>
+            <td>√</td>
+            <td>2024.10.5</td>
+            <td>
+                <a href="./view.html" class="btn btn-info">查看详情</a>
+            </td>
+        </tr>
+        <tr>
+            <td>2569</td>
+            <td>86541233444842</td>
+            <td>DTZG123456</td>
+            <td>正式</td>
+            <td>2023.6.30~2024.6.30</td>
+            <td>启用</td>
+            <td>1</td>
+            <td>赵哥车队</td>
+            <td>2023.6.30~2024.6.30</td>
+            <td>√</td>
+            <td>2024.7.7</td>
+            <td>
+                <a href="./view.html" class="btn btn-info">查看详情</a>
+            </td>
+        </tr>
+        <tr>
+            <td>8524</td>
+            <td>44524213444842</td>
+            <td>DTZG123456</td>
+            <td>正式</td>
+            <td>2023.4.1~2024.4.1</td>
+            <td>启用</td>
+            <td>1</td>
+            <td>一帆风顺</td>
+            <td>2023.4.1~2024.4.1</td>
+            <td>√</td>
+            <td>2023.10.5</td>
+            <td>
+                <a href="./view.html" class="btn btn-info">查看详情</a>
+            </td>
+        </tr>
+        <tr>
+            <td>4444</td>
+            <td>66546213852842</td>
+            <td>DTZG123456</td>
+            <td>正式</td>
+            <td>2024.6.16~2025.6.16</td>
+            <td>启用</td>
+            <td>1</td>
+            <td>扎尔车队</td>
+            <td>2024.6.16~2025.6.16</td>
+            <td>√</td>
+            <td>2025.5.5</td>
+            <td>
+                <a href="./view.html" class="btn btn-info">查看详情</a>
+            </td>
+        </tr>
+        <tr>
+            <td>8824</td>
+            <td>99856523854842</td>
+            <td>DTZG123456</td>
+            <td>正式</td>
+            <td>2025.9.16~2026.9.16</td>
+            <td>启用</td>
+            <td>1</td>
+            <td>太阳车队</td>
+            <td>2025.9.16~2026.9.16</td>
+            <td>√</td>
+            <td>2025.9.16</td>
+            <td>
+                <a href="./view.html" class="btn btn-info">查看详情</a>
+            </td>
+        </tr>
+        <tr>
+            <td>1123</td>
+            <td>85246325415421</td>
+            <td>DTZG123456</td>
+            <td>正式</td>
+            <td>2024.9.1~2025.9.1</td>
+            <td>启用</td>
+            <td>1</td>
+            <td>T车队</td>
+            <td>2024.9.1~2025.9.1</td>
+            <td>√</td>
+            <td>2025.5.5</td>
+            <td>
+                <a href="./view.html1" class="btn btn-info">查看详情</a>
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

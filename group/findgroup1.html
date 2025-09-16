@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>柱状图</title>
+		<script src="https://cdn.jsdelivr.net/npm/echarts@4.3.0/dist/echarts.min.js"></script>
+	</head>
+	<body>
+		<!-- 通过margin: 0 auto实现水平居中，添加top margin让位置更美观 -->
+		<div id="mydiv" style="width: 600px; height: 400px; margin: 50px auto;"></div>
+		<script>
+			mycharts = echarts.init(document.getElementById("mydiv"));
+			option = {
+				title: {
+					text: '近期群组创建统计',
+					subtext: '2025年9月第1周',
+					left: 'center'
+				},
+				tooltip: {
+					trigger: 'axis',
+					axisPointer: {
+						type: 'shadow'
+					}
+				},
+				xAxis: {
+					data: ['1-10人', '10-20人', '20-50人', '50-200人']
+				},
+				yAxis: {},
+				series: [{
+					name: "数量",
+					type: 'bar',
+					data: [1200, 5000, 3200, 2300]
+				}]
+			};
+			mycharts.setOption(option);
+		</script>
+	</body>
+</html>
+    

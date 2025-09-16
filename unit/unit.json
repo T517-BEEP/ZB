@@ -1,0 +1,119 @@
+{
+  "code": 0,
+  "msg": "",
+  "count": 1000,
+  "data": [
+    {
+      "id": 10000,
+      "realname": "DTZG123456",
+      "deptname": "宇哥",
+      "majorname": "54632179896",
+      "classname": "12358964780",
+      "grade": "大二",
+      "telephone": "1",
+      "qq": "2",
+      "job": "2024.3.3",
+      "status": "启用"
+    },
+    {
+      "id": 10000,
+           "realname": "YGBV123456",
+           "deptname": "张哥",
+           "majorname": "65412587985",
+           "classname": "13765412365",
+           "grade": "大二",
+           "telephone": "1",
+           "qq": "20",
+           "job": "2024.9.3",
+           "status": "启用"
+    },{
+      "id": 10000,
+           "realname": "ASDC123456",
+           "deptname": "赵哥",
+           "majorname": "54632179896",
+           "classname": "15632145874",
+           "grade": "大二",
+           "telephone": "14",
+           "qq": "200",
+           "job": "2024.1.10",
+           "status": "启用"
+    },{
+      "id": 10000,
+           "realname": "FDSZ123456",
+           "deptname": "T哥",
+           "majorname": "54632179896",
+           "classname": "32145698704",
+           "grade": "大二",
+           "telephone": "2",
+           "qq": "60",
+           "job": "2024.11.3",
+           "status": "启用"
+    },{
+      "id": 10000,
+           "realname": "DFCG123456",
+           "deptname": "王哥",
+           "majorname": "54632179896",
+           "classname": "25632145878",
+           "grade": "大二",
+           "telephone": "1",
+           "qq": "20",
+           "job": "2024.11.13",
+           "status": "启用"
+    },{
+      "id": 10000,
+           "realname": "WERG123456",
+           "deptname": "1哥",
+           "majorname": "54632179896",
+           "classname": "25432562145",
+           "grade": "大二",
+           "telephone": "5",
+           "qq": "30",
+           "job": "2024.5.23",
+           "status": "启用"
+    },{
+      "id": 10000,
+           "realname": "QAZX123456",
+           "deptname": "李哥",
+           "majorname": "54632179896",
+           "classname": "36521457896",
+           "grade": "大二",
+           "telephone": "1",
+           "qq": "22",
+           "job": "2024.12.12",
+           "status": "启用"
+    },{
+      "id": 10000,
+           "realname": "UIOP123456",
+           "deptname": "钱哥",
+           "majorname": "54632179896",
+           "classname": "12548966548",
+           "grade": "大二",
+           "telephone": "1",
+           "qq": "2",
+           "job": "2024.3.30",
+           "status": "启用"
+    },{
+      "id": 10000,
+           "realname": "ERDG123456",
+           "deptname": "史哥",
+           "majorname": "54632179896",
+           "classname": "13752529874",
+           "grade": "大二",
+           "telephone": "1",
+           "qq": "27",
+           "job": "2025.1.3",
+           "status": "启用"
+    },{
+      "id": 10000,
+           "realname": "DERF123456",
+           "deptname": "毛哥",
+           "majorname": "54632179896",
+           "classname": "15632145879",
+           "grade": "大二",
+           "telephone": "10",
+           "qq": "200",
+           "job": "2024.12.3",
+           "status": "启用"
+    }
+  ]
+}

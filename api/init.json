@@ -1,0 +1,138 @@
+{
+  "homeInfo": {
+    "title": "首页",
+    "href": "page/home.html"
+  },
+  "logoInfo": {
+    "title": "芯对讲",
+    "image": "images/5084ba1b61e0238546ffd2a66b5dfec2.png",
+    "href": ""
+  },
+  "menuInfo": [
+    {
+      "title": "常规管理",
+      "icon": "fa fa-address-book",
+      "href": "",
+      "target": "_self",
+      "child": [
+		  {
+		    "title": "首页",
+		    "href": "page/home.html",
+		    "icon": "fa fa-home",
+		    "target": "_self"
+		  },
+        {
+          "title": "个人中心",
+          "href": "personal/personal1.html",
+          "icon": "fa fa-home",
+          "target": "_self"
+        },
+        {
+          "title": "我的代理商",
+          "href": "",
+          "icon": "fa fa-group",
+          "target": "_self",
+          "child": [
+          {
+            "title": "创建代理商",
+            "href": "agent/addagent.html",
+            "icon": "fa fa-plus-circle",
+            "target": "_self"
+          }, {
+            "title": "代理商列表",
+            "href": "agent/findagent.html",
+            "icon": "fa fa-align-justify",
+            "target": "_self"
+          }
+        ]
+        },
+        {
+          "title": "我的单位",
+          "href": "",
+          "icon": "fa fa-institution",
+          "target": "_self",
+          "child": [
+            {
+              "title": "创建单位",
+              "href": "unit/addunit.html",
+              "icon": "fa fa-plus-circle",
+              "target": "_self"
+            }, {
+              "title": "单位列表",
+              "href": "unit/findunit.html",
+              "icon": "fa fa-align-justify",
+              "target": "_self"
+            }
+          ]
+        },
+        {
+          "title": "我的群组",
+          "href": "",
+          "icon": "fa fa-group",
+          "target": "_self",
+          "child": [
+            {
+              "title": "创建群组",
+              "href": "group/addgroup.html",
+              "icon": "fa fa-plus-circle",
+              "target": "_self"
+            }, {
+              "title": "群组列表",
+              "href": "group/findgroup.html",
+              "icon": "fa fa-align-justify",
+              "target": "_self"
+            },{
+			  "title": "群组近期创建统计",
+			  "href": "group/findgroup1.html",
+			  "icon": "fa fa-bar-chart",
+			  "target": "_self"
+			}
+          ]
+        },
+        {
+          "title": "我的用户",
+          "href": "",
+          "icon": "fa fa-male",
+          "target": "_self",
+          "child": [
+            {
+              "title": "创建用户",
+              "href": "user/adduser.html",
+              "icon": "fa fa-plus-circle",
+              "target": "_self"
+            }, {
+              "title": "用户列表",
+              "href": "user/finduser.html",
+              "icon": "fa fa-align-justify",
+              "target": "_self"
+            },{
+			  "title": "删除用户",
+			  "href": "user/finduser1.html",
+			  "icon": "fa fa-arrows-alt",
+			  "target": "_self"
+			}
+          ]
+        },
+		{
+		  "title": "续费",
+		  "href": "renew/renew1.html",
+		  "icon": "fa fa-jpy",
+		  "target": "_self"
+		},
+        {
+          "title": "服务卡记录",
+          "href": "card/card1.html",
+          "icon": "fa fa-paw",
+          "target": "_self"
+        },
+        {
+          "title": "系统公告",
+          "href": "announcement/announcement1.html",
+          "icon": "fa fa-eye",
+          "target": "_self"
+         
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>修改单位信息</title>
+    <!-- 引入Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 引入Font Awesome图标 -->
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    
+    <!-- Tailwind配置 -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3b82f6',    // 主色调（蓝色）
+                        success: '#10b981',    // 成功色（绿色）
+                        danger: '#ef4444',     // 危险色（红色）
+                        neutral: '#6b7280'     // 中性色（灰色）
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 min-h-screen flex flex-col">
+    <!-- 页面标题栏 -->
+    <header class="bg-white shadow-sm border-b border-gray-200 py-4">
+        <div class="container mx-auto px-4 flex items-center justify-between">
+            <h1 class="text-xl font-bold text-gray-800 flex items-center">
+                <i class="fa fa-building-o text-primary mr-2"></i>
+                单位信息修改
+            </h1>
+            <button onclick="window.location.href='./findunit.html'" 
+                    class="text-gray-600 hover:text-primary transition-colors flex items-center">
+                <i class="fa fa-arrow-left mr-1"></i> 返回列表
+            </button>
+        </div>
+    </header>
+
+    <!-- 主要内容区 -->
+    <main class="flex-grow container mx-auto px-4 py-8 max-w-3xl">
+        <!-- 成功提示框（默认隐藏） -->
+        <div id="successAlert" class="hidden fixed top-4 left-1/2 -translate-x-1/2 z-50 bg-success text-white px-6 py-3 rounded-md shadow-lg flex items-center animate-fadeIn">
+            <i class="fa fa-check-circle mr-2 text-lg"></i>
+            <span>单位信息修改成功！</span>
+        </div>
+
+        <!-- 表单卡片 -->
+        <div class="bg-white rounded-lg shadow-md p-6 md:p-8">
+            <form id="unitForm" class="space-y-6">
+                <!-- 单位名称 -->
+                <div class="space-y-2">
+                    <label for="unitName" class="block text-sm font-medium text-gray-700 flex items-center">
+                        <i class="fa fa-tag text-neutral mr-2"></i>单位名称
+                        <span class="text-danger ml-1">*</span>
+                    </label>
+                    <input type="text" id="unitName" name="unitName" value="DTZG123456" 
+                           class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
+                           placeholder="请输入单位名称">
+                    <p id="unitNameError" class="mt-1 text-sm text-danger hidden">单位名称不能为空</p>
+                </div>
+
+                <!-- 绑定平台 -->
+                <div class="space-y-2">
+                    <label for="bindPlatform" class="block text-sm font-medium text-gray-700 flex items-center">
+                        <i class="fa fa-plug text-neutral mr-2"></i>绑定平台
+                        <span class="text-danger ml-1">*</span>
+                    </label>
+                    <input type="text" id="bindPlatform" name="bindPlatform" value="宇哥" 
+                           class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
+                           placeholder="请输入绑定平台名称">
+                    <p id="bindPlatformError" class="mt-1 text-sm text-danger hidden">绑定平台不能为空</p>
+                </div>
+
+                <!-- 联系人 -->
+                <div class="space-y-2">
+                    <label for="contactPerson" class="block text-sm font-medium text-gray-700 flex items-center">
+                        <i class="fa fa-user text-neutral mr-2"></i>联系人
+                    </label>
+                    <input type="text" id="contactPerson" name="contactPerson" 
+                           class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
+                           placeholder="请输入联系人姓名（选填）">
+                </div>
+
+                <!-- 账号 -->
+                <div class="space-y-2">
+                    <label for="unitAccount" class="block text-sm font-medium text-gray-700 flex items-center">
+                        <i class="fa fa-id-card-o text-neutral mr-2"></i>账号
+                        <span class="text-danger ml-1">*</span>
+                    </label>
+                    <input type="text" id="unitAccount" name="unitAccount" value="54632179896" 
+                           class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
+                           placeholder="请输入单位账号">
+                    <p id="unitAccountError" class="mt-1 text-sm text-danger hidden">账号不能为空</p>
+                </div>
+
+                <!-- 手机号 -->
+                <div class="space-y-2">
+                    <label for="phoneNumber" class="block text-sm font-medium text-gray-700 flex items-center">
+                        <i class="fa fa-phone text-neutral mr-2"></i>手机号
+                        <span class="text-danger ml-1">*</span>
+                    </label>
+                    <input type="tel" id="phoneNumber" name="phoneNumber" value="12358964780" 
+                           class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
+                           placeholder="请输入11位手机号">
+                    <p id="phoneNumberError" class="mt-1 text-sm text-danger hidden">请输入有效的11位手机号</p>
+                </div>
+
+                <!-- 群组数量 -->
+                <div class="space-y-2">
+                    <label for="groupCount" class="block text-sm font-medium text-gray-700 flex items-center">
+                        <i class="fa fa-users text-neutral mr-2"></i>群组数量
+                        <span class="text-danger ml-1">*</span>
+                    </label>
+                    <input type="number" id="groupCount" name="groupCount" value="1" min="0" 
+                           class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
+                           placeholder="请输入群组数量（非负整数）">
+                    <p id="groupCountError" class="mt-1 text-sm text-danger hidden">请输入有效的群组数量（非负整数）</p>
+                </div>
+
+                <!-- 用户数量 -->
+                <div class="space-y-2">
+                    <label for="userCount" class="block text-sm font-medium text-gray-700 flex items-center">
+                        <i class="fa fa-user-o text-neutral mr-2"></i>用户数量
+                        <span class="text-danger ml-1">*</span>
+                    </label>
+                    <input type="number" id="userCount" name="userCount" value="2" min="0" 
+                           class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
+                           placeholder="请输入用户数量（非负整数）">
+                    <p id="userCountError" class="mt-1 text-sm text-danger hidden">请输入有效的用户数量（非负整数）</p>
+                </div>
+
+                <!-- 创建日期（不可修改，仅展示） -->
+                <div class="space-y-2">
+                    <label class="block text-sm font-medium text-gray-700 flex items-center">
+                        <i class="fa fa-calendar text-neutral mr-2"></i>创建日期
+                    </label>
+                    <input type="text" value="2024.3.3" readonly 
+                           class="w-full px-4 py-2 border border-gray-200 bg-gray-50 rounded-md text-gray-600 cursor-not-allowed">
+                    <p class="mt-1 text-sm text-gray-500">创建日期不可修改，仅作记录展示</p>
+                </div>
+
+                <!-- 操作按钮 -->
+                <div class="mt-8 flex flex-col sm:flex-row gap-3">
+                    <button type="button" onclick="submitModify()"
+                            class="flex-1 bg-primary text-white px-6 py-3 rounded-md hover:bg-primary/90 transition-colors flex items-center justify-center font-medium">
+                        <i class="fa fa-check mr-2"></i> 确认修改
+                    </button>
+                    <button type="button" onclick="resetForm()"
+                            class="flex-1 border border-gray-300 text-gray-700 px-6 py-3 rounded-md hover:bg-gray-50 transition-colors flex items-center justify-center font-medium">
+                        <i class="fa fa-refresh mr-2"></i> 重置表单
+                    </button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="bg-white border-t border-gray-200 py-4 mt-8">
+        <div class="container mx-auto px-4 text-center text-gray-500 text-sm">
+            <p>© 2024 单位管理系统 | 操作记录将保留1年</p>
+        </div>
+    </footer>
+
+    <script>
+        // 初始表单值（用于重置功能）
+        const initialFormValues = {
+            unitName: "DTZG123456",
+            bindPlatform: "宇哥",
+            contactPerson: "",
+            unitAccount: "54632179896",
+            phoneNumber: "12358964780",
+            groupCount: "1",
+            userCount: "2"
+        };
+
+        // 表单校验规则
+        function validateForm() {
+            // 获取表单值
+            const unitName = document.getElementById('unitName').value.trim();
+            const bindPlatform = document.getElementById('bindPlatform').value.trim();
+            const unitAccount = document.getElementById('unitAccount').value.trim();
+            const phoneNumber = document.getElementById('phoneNumber').value.trim();
+            const groupCount = document.getElementById('groupCount').value.trim();
+            const userCount = document.getElementById('userCount').value.trim();
+
+            // 获取错误提示元素
+            const unitNameError = document.getElementById('unitNameError');
+            const bindPlatformError = document.getElementById('bindPlatformError');
+            const unitAccountError = document.getElementById('unitAccountError');
+            const phoneNumberError = document.getElementById('phoneNumberError');
+            const groupCountError = document.getElementById('groupCountError');
+            const userCountError = document.getElementById('userCountError');
+
+            // 重置所有错误提示
+            let isValid = true;
+            unitNameError.classList.add('hidden');
+            bindPlatformError.classList.add('hidden');
+            unitAccountError.classList.add('hidden');
+            phoneNumberError.classList.add('hidden');
+            groupCountError.classList.add('hidden');
+            userCountError.classList.add('hidden');
+
+            // 校验单位名称
+            if (unitName === '') {
+                unitNameError.classList.remove('hidden');
+                isValid = false;
+            }
+
+            // 校验绑定平台
+            if (bindPlatform === '') {
+                bindPlatformError.classList.remove('hidden');
+                isValid = false;
+            }
+
+            // 校验账号
+            if (unitAccount === '') {
+                unitAccountError.classList.remove('hidden');
+                isValid = false;
+            }
+
+            // 校验手机号（11位数字）
+            const phoneReg = /^1\d{10}$/;
+            if (!phoneReg.test(phoneNumber)) {
+                phoneNumberError.classList.remove('hidden');
+                isValid = false;
+            }
+
+            // 校验群组数量（非负整数）
+            const numberReg = /^\d+$/;
+            if (!numberReg.test(groupCount)) {
+                groupCountError.classList.remove('hidden');
+                isValid = false;
+            }
+
+            // 校验用户数量（非负整数）
+            if (!numberReg.test(userCount)) {
+                userCountError.classList.remove('hidden');
+                isValid = false;
+            }
+
+            return isValid;
+        }
+
+        // 提交修改
+        function submitModify() {
+            // 表单校验
+            if (!validateForm()) return;
+
+            // （实际项目中此处需调用后端接口提交修改，示例用定时器模拟接口请求）
+            const successAlert = document.getElementById('successAlert');
+            
+            // 显示加载状态（按钮禁用+加载图标）
+            const submitBtn = document.querySelector('button[onclick="submitModify()"]');
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fa fa-spinner fa-spin mr-2"></i> 修改中...';
+
+            // 模拟接口请求（2秒后显示成功提示）
+            setTimeout(() => {
+                // 恢复按钮状态
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<i class="fa fa-check mr-2"></i> 确认修改';
+
+                // 显示成功提示
+                successAlert.classList.remove('hidden');
+                
+                // 3秒后自动隐藏提示
+                setTimeout(() => {
+                    successAlert.classList.add('hidden');
+                }, 3000);
+
+                // （可选）修改成功后跳回列表页（如需跳转可取消注释）
+                // setTimeout(() => {
+                //     window.location.href = 'unit-list.html';
+                // }, 1500);
+            }, 800);
+        }
+
+        // 重置表单
+        function resetForm() {
+            // 重置表单值
+            document.getElementById('unitName').value = initialFormValues.unitName;
+            document.getElementById('bindPlatform').value = initialFormValues.bindPlatform;
+            document.getElementById('contactPerson').value = initialFormValues.contactPerson;
+            document.getElementById('unitAccount').value = initialFormValues.unitAccount;
+            document.getElementById('phoneNumber').value = initialFormValues.phoneNumber;
+            document.getElementById('groupCount').value = initialFormValues.groupCount;
+            document.getElementById('userCount').value = initialFormValues.userCount;
+
+            // 隐藏所有错误提示
+            document.querySelectorAll('.text-danger').forEach(el => {
+                el.classList.add('hidden');
+            });
+        }
+
+        // 为输入框添加实时校验（输入时隐藏对应错误提示）
+        document.querySelectorAll('#unitForm input').forEach(input => {
+            input.addEventListener('input', function() {
+                const errorId = this.id + 'Error';
+                const errorEl = document.getElementById(errorId);
+                if (errorEl) {
+                    errorEl.classList.add('hidden');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

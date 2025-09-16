@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>删除用户</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3b82f6',
+                        danger: '#ef4444',
+                        success: '#10b981'
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <div class="container mx-auto px-4 py-12 max-w-md">
+        <!-- 成功提示框：默认隐藏，删除后显示 -->
+        <div id="successAlert" class="hidden fixed top-4 left-1/2 -translate-x-1/2 z-50 bg-success text-white px-6 py-3 rounded-md shadow-lg flex items-center">
+            <i class="fa fa-check-circle mr-2"></i>
+            <span>已成功删除用户</span>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-md p-6">
+            <h1 class="text-xl font-bold text-gray-800 mb-6 flex items-center">
+                <i class="fa fa-user-times text-danger mr-2"></i>删除用户
+            </h1>
+            
+            <!-- 用户信息文本框 -->
+            <div class="space-y-4">
+                <div>
+                    <label for="userId" class="block text-sm font-medium text-gray-700 mb-1">用户账号</label>
+                    <input type="text" id="userId" name="userId" 
+                           class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary">
+                    <p id="userIdError" class="mt-1 text-sm text-danger hidden">用户账号不能为空</p>
+                </div>
+                
+                <div>
+                    <label for="username" class="block text-sm font-medium text-gray-700 mb-1">用户名</label>
+                    <input type="text" id="username" name="username" 
+                           class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary">
+                    <p id="usernameError" class="mt-1 text-sm text-danger hidden">用户名不能为空</p>
+                </div>
+                
+                <div>
+                    <label for="group" class="block text-sm font-medium text-gray-700 mb-1">所属群组</label>
+                    <input type="text" id="group" name="group" 
+                           class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary">
+                    <p id="groupError" class="mt-1 text-sm text-danger hidden">所属群组不能为空</p>
+                </div>
+            </div>
+            
+            <!-- 操作按钮 -->
+            <div class="mt-8 flex gap-3">
+                <!-- 删除按钮：点击先校验，通过后显示提示 -->
+                <button onclick="validateAndDelete()"
+                        class="flex-1 bg-danger text-white px-4 py-2 rounded-md hover:bg-danger/90 transition-colors flex items-center justify-center">
+                    <i class="fa fa-trash mr-2"></i>删除用户
+                </button>
+                
+                <!-- 取消按钮 -->
+                <button onclick="window.location.href='user-list.html'"
+                        class="flex-1 border border-gray-300 text-gray-700 px-4 py-2 rounded-md hover:bg-gray-50 transition-colors">
+                    取消
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 表单校验并删除用户
+        function validateAndDelete() {
+            // 获取表单值
+            const userId = document.getElementById('userId').value.trim();
+            const username = document.getElementById('username').value.trim();
+            const group = document.getElementById('group').value.trim();
+            
+            // 获取错误提示元素
+            const userIdError = document.getElementById('userIdError');
+            const usernameError = document.getElementById('usernameError');
+            const groupError = document.getElementById('groupError');
+            
+            // 重置所有错误提示
+            userIdError.classList.add('hidden');
+            usernameError.classList.add('hidden');
+            groupError.classList.add('hidden');
+            
+            // 标记是否通过校验
+            let isValid = true;
+            
+            // 校验用户账号
+            if (userId === '') {
+                userIdError.classList.remove('hidden');
+                isValid = false;
+            }
+            
+            // 校验用户名
+            if (username === '') {
+                usernameError.classList.remove('hidden');
+                isValid = false;
+            }
+            
+            // 校验所属群组
+            if (group === '') {
+                groupError.classList.remove('hidden');
+                isValid = false;
+            }
+            
+            // 如果校验通过，执行删除操作
+            if (isValid) {
+                showSuccessAlert();
+            }
+        }
+        
+        // 显示成功提示的函数
+        function showSuccessAlert() {
+            const alert = document.getElementById('successAlert');
+            // 显示提示框
+            alert.classList.remove('hidden');
+            // 3秒后自动隐藏提示框
+            setTimeout(() => {
+                alert.classList.add('hidden');
+            }, 3000);
+
+            // （可选）实际项目中，此处可添加调用后端删除接口的代码
+            // 示例：axios.post('/api/user/delete', { 
+            //   userId: document.getElementById('userId').value,
+            //   username: document.getElementById('username').value,
+            //   group: document.getElementById('group').value
+            // })
+            // .then(res => { /* 接口成功回调 */ })
+            // .catch(err => { /* 接口失败处理 */ });
+        }
+    </script>
+</body>
+</html>
